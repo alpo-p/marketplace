@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>alposlist - {% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <header>
+        <h2>alposlist - an online marketplace</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#">Autot</a></li>
+                <li><a href="#">Puhelimet</a></li>
+                <li><a href="#">Vuokra-asunnot</a></li>
+                <li><a href="#">Tietokoneet</a></li>
+                <li><a href="#">Muu elektroniikka</a></li>
+            </ul>
+        </nav>
+
+        <article>
+           {% block content %}{% endblock %} 
+        </article>
+    </section>
+
+</body>
