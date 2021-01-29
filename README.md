@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/alpo-p/online-marketplace">
+  <a href="https://github.com/alpo-p/marketplace">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -17,14 +17,14 @@
   <p align="center">
     A web application built with Flask, HTML and PostgreSQL. It takes inspiration from online marketplaces such as tori.fi and Craig's list
     <br />
-    <a href="https://github.com/alpo-p/online-marketplace"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/alpo-p/marketplace"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/alpo-p/online-marketplace">View Demo</a>
+    <a href="https://github.com/alpo-p/marketplace">View Demo</a>
     ·
-    <a href="https://github.com/alpo-p/online-marketplace/issues">Report Bug</a>
+    <a href="https://github.com/alpo-p/marketplace/issues">Report Bug</a>
     ·
-    <a href="https://github.com/alpo-p/online-marketplace/issues">Request Feature</a>
+    <a href="https://github.com/alpo-p/marketplace/issues">Request Feature</a>
   </p>
 </p>
 
@@ -63,7 +63,7 @@
 
 TODO
 
-[![Online Marketplace Screen Shot][product-screenshot]](TODO)
+[![Marketplace Screen Shot][product-screenshot]](TODO)
 
 
 
@@ -99,7 +99,7 @@ TODO
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/alpo-p/online-marketplace/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/alpo-p/marketplace/issues) for a list of proposed features (and known issues).
 
 
 
@@ -113,7 +113,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/alpo-p/online-marketplace](https://github.com/alpo-p/online-marketplace)
+Project Link: [https://github.com/alpo-p/marketplace](https://github.com/alpo-p/marketplace)
 
 
 
@@ -127,16 +127,16 @@ Project Link: [https://github.com/alpo-p/online-marketplace](https://github.com/
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/alpo-p/online-marketplace.svg?style=for-the-badge
-[contributors-url]: https://github.com/alpo-p/online-marketplace/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/alpo-p/online-marketplace.svg?style=for-the-badge
-[forks-url]: https://github.com/alpo-p/online-marketplace/network/members
-[stars-shield]: https://img.shields.io/github/stars/alpo-p/online-marketplace.svg?style=for-the-badge
-[stars-url]: https://github.com/alpo-p/online-marketplace/stargazers
-[issues-shield]: https://img.shields.io/github/issues/alpo-p/online-marketplace.svg?style=for-the-badge
-[issues-url]: https://github.com/alpo-p/online-marketplace/issues
-[license-shield]: https://img.shields.io/github/license/alpo-p/online-marketplace.svg?style=for-the-badge
-[license-url]: https://github.com/alpo-p/online-marketplace/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/alpo-p/marketplace.svg?style=for-the-badge
+[contributors-url]: https://github.com/alpo-p/marketplace/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/alpo-p/marketplace.svg?style=for-the-badge
+[forks-url]: https://github.com/alpo-p/marketplace/network/members
+[stars-shield]: https://img.shields.io/github/stars/alpo-p/marketplace.svg?style=for-the-badge
+[stars-url]: https://github.com/alpo-p/marketplace/stargazers
+[issues-shield]: https://img.shields.io/github/issues/alpo-p/marketplace.svg?style=for-the-badge
+[issues-url]: https://github.com/alpo-p/marketplace/issues
+[license-shield]: https://img.shields.io/github/license/alpo-p/marketplace.svg?style=for-the-badge
+[license-url]: https://github.com/alpo-p/marketplace/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alpopanula
 
