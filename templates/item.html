@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+<h2>{{ item_name }}</h2>
+<img 
+    src="../static/images/{{ picture }}"
+    alt="Kuva myynnissä olevasta tuotteesta"
+    width=400
+    height=250>
+<hr>
+Ilmoitus jätetty: {{ date_added }} <br>
+Hinta: {{ price }} €
+<hr>
+Lisätiedot:
+<br>
+{{ kuvaus }}
+{% endblock %}
