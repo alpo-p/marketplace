@@ -14,6 +14,15 @@ from werkzeug.security import check_password_hash, generate_password_hash
 def index():
     return render_template("index.html")
 
+@app.context_processor
+def utility_processor():
+    def get_categories():
+        sql = "SELECT id, name FROM categories"
+        result = db.session.execute(sql)
+        categories = result.fetchall()
+        return categories
+    return dict(get_categories=get_categories)
+
 # Individual category page
 @app.route("/category/<int:id>")
 def category(id):
@@ -112,12 +121,20 @@ def admin_login():
         session["admin"] = username
     else:
         print("ERROR")
-    return redirect("admin")
+    return redirect("/admin")
 
 @app.route("/admin/logout")
 def admin_logout():
     del session["admin"]
     return redirect("/")
+
+@app.route("/admin/new_category", methods=["POST"])
+def new_category():
+    new = request.form["name_of_category"]
+    sql = "INSERT INTO categories (name) VALUES (:new)"
+    db.session.execute(sql, {"new":new})
+    db.session.commit()
+    return redirect("/admin")
 
 @app.route("/profile")
 def profile():

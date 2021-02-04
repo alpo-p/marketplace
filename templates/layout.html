@@ -15,21 +15,23 @@
         <nav>
             <hr>
             {% if session.username %}
-            Olet kirjautunut sisään käyttäjällä {{ session.username }}
-            <br>
-            <a href="/logout">Kirjaudu ulos</a>
+                Olet kirjautunut sisään käyttäjällä {{ session.username }}
+                <br>
+                <a href="/logout">Kirjaudu ulos</a>
+                <br>
+                <a href="/profile">Muuta tietojasi KESKEN</a>
+                <br>
+                <a href="/editads">Lisää tai muuta ilmoituksiasi KESKEN</a>
             {% else %}
-            <a href="/login_screen">Kirjaudu sisään</a>
-            <br>
-            <a href="/register_screen">Rekisteröidy</a>
+                <a href="/login_screen">Kirjaudu sisään</a>
+                <br>
+                <a href="/register_screen">Rekisteröidy</a>
             {% endif %}
             <hr>
             <ul>
-                <li><a href="/category/1">Autot</a></li>
-                <li><a href="/category/2">Puhelimet</a></li>
-                <li><a href="/category/3">Vuokra-asunnot</a></li>
-                <li><a href="/category/4">Tietokoneet</a></li>
-                <li><a href="/category/5">Muu elektroniikka</a></li>
+                {% for category in get_categories() %}
+                    <li><a href="/category/{{ category[0] }}">{{ category[1] }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
 
