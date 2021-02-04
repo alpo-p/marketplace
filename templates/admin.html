@@ -1,0 +1,21 @@
+{% if session.admin %}
+TÄNNE ADMIN-paneeli
+<form action="/admin/new_category" method="POST">
+<p>Lisää kategoria:</p>
+<input type="text" name="name_of_category">
+<input type="submit" value="Lisää kategoria">
+</form>
+<hr>
+
+<a href="/admin/logout">Kirjaudu ulos</a>
+
+{% else %}
+<h1>ADMIN-login</h1>
+<form action="/admin/login" method="POST">
+    <p>Käyttäjätunnus:<br>
+    <input type="text" name="username"></p>
+    <p>Salasana: <br>
+    <input type="password" name="password"></p>
+    <input type="submit" value="Kirjaudu sisään"> 
+</form>
+{% endif %}

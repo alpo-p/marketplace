@@ -33,3 +33,8 @@ CREATE TABLE userinfo (
     kuvaus TEXT,
     nettisivu TEXT
 );
+CREATE TABLE admin(
+    id SERIAL PRIMARY KEY,
+    username TEXT
+    password TEXT
+)
