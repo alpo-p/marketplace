@@ -19,9 +19,9 @@
                 <br>
                 <a href="/logout">Kirjaudu ulos</a>
                 <br>
-                <a href="/profile">Muuta tietojasi KESKEN</a>
+                <a href="/profile">Muuta tietojasi</a>
                 <br>
-                <a href="/editads">Lisää tai muuta ilmoituksiasi KESKEN</a>
+                <a href="/my_ads">Lisää tai muuta ilmoituksiasi</a>
             {% else %}
                 <a href="/login_screen">Kirjaudu sisään</a>
                 <br>
@@ -33,6 +33,7 @@
                     <li><a href="/category/{{ category[0] }}">{{ category[1] }}</a></li>
                 {% endfor %}
             </ul>
+            <hr>
         </nav>
 
         <article>

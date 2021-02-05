@@ -1,0 +1,51 @@
+<script>
+    function toggle_display(c) {
+        el = document.querySelector('.'+c);
+        if (el.style.display == 'none') {
+            el.style.display = 'block';
+            scroll(0,300);
+        } else {
+            el.style.display = 'none';
+        }
+    }
+</script>
+
+{% extends "layout.html" %}
+{% block title %}Ilmoitusten lisäys tai muokkaus{% endblock %}
+{% block content %}
+<h2>Lisää tai muokkaa ilmoituksia</h2>
+
+<button onclick="toggle_display('new_ad')">Lisää uusi ilmoitus</button> <br>
+<div class="new_ad" style="display:none">
+    <form action="/make_ad" method="POST">
+        <p>Tuotteen nimi:<br>
+            <input type="text" name="name"></p> 
+
+        <label>Valitse kategoria:</label>
+        <select name="category">
+            {% for category in get_categories() %}
+                <option value="{{ category[0] }}">{{ category[1] }}</option>
+            {% endfor %}
+        </select> <br> <br>
+
+        <label>Ostetaan/myydään:</label>
+        <select name="ostetaan">
+            <option value="FALSE">Myydään</option>
+            <option value="TRUE">Ostetaan</option>
+        </select> <br>
+            
+        <p>Kuvaus:<br>
+            <textarea name="kuvaus" rows=15 cols=69></textarea>
+        <p>Hinta:<br>
+            <input type="text" name="hinta"></p> 
+        <button>Lisää kuva (ei tee mitään)</button> <br><br>
+        <input type="submit" value="Luo ilmoitus">
+    </form>
+</div>
+<hr>
+
+<button onclick="toggle_display('all_ads')">Näytä ilmoitukset</button> <br>
+<div class="all_ads" style="display:none">
+    Renderöi olemassaolevat mainokset tänne, ja mahdollisuus muokata
+</div>
+{% endblock %}
