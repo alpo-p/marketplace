@@ -3,42 +3,62 @@
     <title>alposlist - {% block title %}{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <header>
-        <h2>alposlist - an online marketplace</h2>
-    </header>
-
-    <section>
-        <nav>
-            <hr>
-            {% if session.username %}
-                Olet kirjautunut sisään käyttäjällä {{ session.username }}
-                <br>
-                <a href="/logout">Kirjaudu ulos</a>
-                <br>
-                <a href="/profile">Muuta tietojasi</a>
-                <br>
-                <a href="/my_ads">Lisää tai muuta ilmoituksiasi</a>
-            {% else %}
-                <a href="/login_screen">Kirjaudu sisään</a>
-                <br>
-                <a href="/register_screen">Rekisteröidy</a>
-            {% endif %}
-            <hr>
-            <ul>
-                {% for category in get_categories() %}
-                    <li><a href="/category/{{ category[0] }}">{{ category[1] }}</a></li>
-                {% endfor %}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <p class="logo">alposlist</p>
+            </a>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav">
+                {% if session.username %}
+                <li><a href="/logout">
+                    <span class="glyphicon glyphicon-log-out"></span> Kirjaudu ulos
+                </a></li>
+                <li><a href="/profile">
+                    <span class="glyphicon glyphicon-user"></span> Muuta tietojasi
+                </a></li>
+                <li><a href="/my_ads">
+                    <span class="glyphicon glyphicon-edit"></span> Lisää tai muuta ilmoituksiasi
+                </a></li>
+                {% else %}
+                <li><a href="/register_screen">
+                    <span class="glyphicon glyphicon-export"></span> Rekisteröidy
+                </a></li>
+                <li><a href="/login_screen">
+                    <span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään
+                </a></li>
+                {% endif %}
             </ul>
-            <hr>
-        </nav>
+        </div>
+    </div>
+</nav>
 
-        <article>
-           {% block content %}{% endblock %} 
-        </article>
-    </section>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            {% for category in get_categories() %}
+                <p><a href="/category/{{ category[0] }}">{{ category[1] }}</a></p>
+            {% endfor %}
+        </div>
+        <div class="col-sm-8 text-left">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <p>&copyAlpo Panula 2021</p>
+    <p>Kaikki oikeudet pidätetään</p>
+</footer>
 
 </body>
