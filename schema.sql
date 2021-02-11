@@ -7,6 +7,13 @@ CREATE TABLE items (
     date_added TIMESTAMP,
     visible BOOLEAN
 );
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    password TEXT
+);
+
 CREATE TABLE iteminfo (
     id SERIAL PRIMARY KEY,
     item_id INTEGER REFERENCES items,
@@ -17,11 +24,6 @@ CREATE TABLE iteminfo (
     picture TEXT
 );
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name TEXT,
-    password TEXT,
-);
 CREATE TABLE userinfo (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
@@ -33,8 +35,9 @@ CREATE TABLE userinfo (
     kuvaus TEXT,
     nettisivu TEXT
 );
+
 CREATE TABLE admin(
     id SERIAL PRIMARY KEY,
-    username TEXT
+    username TEXT,
     password TEXT
-)
+);

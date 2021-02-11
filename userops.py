@@ -21,7 +21,7 @@ def make_ad():
     category = request.form["category"]
     ostetaan = request.form["ostetaan"]
     kuvaus = request.form["kuvaus"]
-    hinta = request.form["hinta"]
+    hinta = int(request.form["hinta"].replace(" ",""))
 
     sql_a = "INSERT INTO items (category_id, name, date_added, visible)" \
             "VALUES (:category, :name, NOW(), TRUE) RETURNING id"
