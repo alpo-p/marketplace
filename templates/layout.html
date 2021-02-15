@@ -21,25 +21,39 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="/">
                 <p class="logo">alposlist</p>
             </a>
         </div>
-        <div class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-th-list"></span> Kategoriat</a>
+                    <ul class="dropdown-menu">
+                        {% for category in get_categories() %}
+                            <li><a href="/category/{{ category[0] }}">{{ category[1] }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
                 {% if session.username %}
-                <li><a href="/logout">
-                    <span class="glyphicon glyphicon-log-out"></span> Kirjaudu ulos
-                </a></li>
                 <li><a href="/profile">
                     <span class="glyphicon glyphicon-user"></span> Muuta tietojasi
                 </a></li>
                 <li><a href="/add_ad">
                     <span class="glyphicon glyphicon-plus"></span> Lisää ilmoitus  
                 </a></li>
+                <li><a href="/logout">
+                    <span class="glyphicon glyphicon-log-out"></span> Kirjaudu ulos
+                </a></li>
                 {% else %}
                 <li><a href="/register_screen">
-                    <span class="glyphicon glyphicon-export"></span> Rekisteröidy
+                    <span class="glyphicon glyphicon-circle-arrow-down"></span> Rekisteröidy
                 </a></li>
                 <li><a href="/login_screen">
                     <span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään
@@ -52,12 +66,7 @@
 
 <div class="container-fluid">
     <div class="row content">
-        <div class="col-sm-2 sidenav">
-            {% for category in get_categories() %}
-                <p><a href="/category/{{ category[0] }}">{{ category[1] }}</a></p>
-            {% endfor %}
-        </div>
-        <div class="col-sm-8 text-left">
+        <div class="col-sm-12 text-left">
             {% block content %}{% endblock %}
         </div>
     </div>
