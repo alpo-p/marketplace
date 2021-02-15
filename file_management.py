@@ -4,7 +4,7 @@ import uuid
 
 bucket = getenv("BUCKET")
 MYDIR = path.dirname(__file__)
-UPLOAD_FOLDER = MYDIR + '/tmp/upload'
+UPLOAD_FOLDER = path.join(MYDIR, 'tmp/upload')
 
 def upload_file(path, file_name, bucket):
     '''
