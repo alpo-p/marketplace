@@ -3,7 +3,8 @@ from os import getenv, path, remove
 import uuid
 
 bucket = getenv("BUCKET")
-UPLOAD_FOLDER = 'tmp/upload'
+MYDIR = path.dirname(__file__)
+UPLOAD_FOLDER = MYDIR + '/tmp/upload'
 
 def upload_file(path, file_name, bucket):
     '''
