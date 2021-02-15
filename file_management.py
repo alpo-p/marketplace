@@ -3,7 +3,7 @@ from os import getenv, path, remove, environ
 import uuid
 
 bucket = getenv("S3_BUCKET")
-if not bucket:
+if bucket == "":
     bucket = environ.get('S3_BUCKET')
 MYDIR = path.dirname(__file__)
 UPLOAD_FOLDER = path.join(MYDIR, 'tmp/upload')
