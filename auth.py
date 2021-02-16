@@ -42,9 +42,19 @@ def register_screen():
 def register():
     username = request.form["username"]
     password = request.form["password"]
-    hashed = generate_password_hash(password)
-    sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
-    db.session.execute(sql, {"username":username,"password":hashed})
+    puhelinnumero = request.form["puhelinnumero"]
+    paikkakunta = request.form["paikkakunta"]
+    sposti = request.form["sposti"]
+    hashed_pwd = generate_password_hash(password)
+    sql_a = "INSERT INTO users (username,password)" \
+            "VALUES (:username,:password) RETURNING id"
+    result_a = db.session.execute(sql_a, {"username":username,"password":hashed_pwd})
+    db.session.commit()
+    user_id = result_a.fetchone()[0]
+
+    sql_b = "INSERT INTO userinfo (user_id,puhelinnumero,paikkakunta,sposti)" \
+            "VALUES (:user_id,:puhelinnumero,:paikkakunta,:sposti)"
+    db.session.execute(sql_b, {"user_id":user_id,"puhelinnumero":puhelinnumero,"paikkakunta":paikkakunta,"sposti":sposti})
     db.session.commit()
 
     session["username"] = username

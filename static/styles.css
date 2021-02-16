@@ -1,32 +1,50 @@
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
 .navbar.navbar {
-  margin-bottom: 5px;
   margin-bottom: 0;
   border-radius: 0;
 }
 
-.row.content { height: 450px }
 
+.row.content { min-height: 450px }
 
-footer {
-  background-color: #555;
-  color: whitesmoke;
-  padding: 10px;
+#footer-container {
+  position: absolute;
+  bottom: 0;
+  height: 6rem;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  background-color: #f8f8f8f0;
+  border-top: #e7e7e7 solid 2px;
 }
+
+#content-wrap {
+  margin-bottom: 10px;
+  padding-bottom: 6.5rem;
+}
+
+#page-container {
+  padding-right: 0;
+  padding-left: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
 
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
-	.navbar .nav-item:hover .nav-link{ color: #fff;  }
+	.navbar .nav-item:hover .nav-link{ color:#555; }
 	.navbar .nav-item:hover .dropdown-menu{ display: block; }
 	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+  .loginlabel { color:#555; }
+}
+@media all and (max-width: 991px) {
+  .loginlabel { color:#555; }
 }
 
 .logo { 
-  color: #e6ffff;
-  border: 2px solid #f1f1f1;
+  color: #303030;
+  border: 2px solid #010e04;
   border-radius: 5px;
   font-family: fantasy;
   border-inline: 12px;
@@ -38,4 +56,90 @@ footer {
   max-height: 300px;
   height: auto;
   width: auto;
+}
+
+/* Sign-in form */
+.form-control, .form-control:focus, .input-group-addon {
+  border-color: #e1e1e1;
+}
+.form-control, .btn {        
+    border-radius: 3px;
+}
+.signup-form {
+  width: 390px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.signup-form form {
+  color: #999;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.signup-form h2 {
+  color: #333;
+  font-weight: bold;
+  margin-top: 0;
+}
+.signup-form hr {
+  margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+.signup-form label {
+  font-weight: normal;
+  font-size: 13px;
+}
+.signup-form .form-control {
+  min-height: 38px;
+  box-shadow: none !important;
+}	
+.signup-form .input-group-addon {
+  min-width: 42px;
+  max-width: 42px;
+  text-align: center;
+}
+.signup-form input[type="checkbox"] {
+  margin-top: 2px;
+}   
+.signup-form .btn{        
+  font-size: 16px;
+  font-weight: bold;
+  background: #19aa8d;
+  border: none;
+  min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+  background: #179b81;
+      outline: none;
+}
+.signup-form a {
+  color: #fff;	
+  text-decoration: underline;
+}
+.signup-form a:hover {
+  text-decoration: none;
+}
+.signup-form form a {
+  color: #19aa8d;
+  text-decoration: none;
+}	
+.signup-form form a:hover {
+  text-decoration: underline;
+}
+.signup-form .fa {
+  font-size: 21px;
+}
+.signup-form .fa-paper-plane {
+  font-size: 18px;
+}
+.signup-form .fa-check {
+  color: #fff;
+  left: 17px;
+  top: 18px;
+  font-size: 7px;
+  position: absolute;
 }

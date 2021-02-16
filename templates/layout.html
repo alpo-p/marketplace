@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -18,7 +19,7 @@
 
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -55,26 +56,45 @@
                 <li><a href="/register_screen">
                     <span class="glyphicon glyphicon-circle-arrow-down"></span> Rekisteröidy
                 </a></li>
-                <li><a href="/login_screen">
-                    <span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään
-                </a></li>
+                <li><a class="dropdown-toggle" data-toggle="dropdown" href="/login_screen">
+                    <span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään</a>
+                    <div class="dropdown-menu">
+                        <br>
+                        <form action="/login" method="POST" class="form container-fluid">
+                            <div class="form-group">
+                                <label class="loginlabel" for="username">Käyttäjätunnus:</label>
+                                <input type="text" class="form-control" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label class="loginlabel" for="password">Salasana:</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-block">Kirjaudu sisään</button>
+                        </form>
+                        <div class="container-fluid">
+                            <br>
+                            <a class="small" href="#">Unohditko salasanan?</a>
+                        </div>
+                    </div>
+                </li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-12 text-left">
-            {% block content %}{% endblock %}
+<div id="page-container" class="container-fluid">
+    <div class="container-fluid">
+        <div id="content-wrap" class="row content">
+            <div class="col-sm-12 text-left">
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </div>
+
+    <footer id="footer-container" class="bg-secondary text-white">
+        <p>&copy2021 Alpo Panula</p>
+        <p>Kaikki oikeudet pidätetään</p>
+    </footer>
 </div>
-
-<footer class="container-fluid text-center">
-    <p>&copy2021 Alpo Panula</p>
-    <p>Kaikki oikeudet pidätetään</p>
-</footer>
-
 </body>
