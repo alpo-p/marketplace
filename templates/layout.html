@@ -3,7 +3,7 @@
     <title>alposlist - {% block title %}{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -40,7 +45,7 @@
                         <span class="glyphicon glyphicon-th-list"></span> Kategoriat</a>
                     <ul class="dropdown-menu">
                         {% for category in get_categories() %}
-                            <li><a href="/category/{{ category[0] }}">{{ category[1] }}</a></li>
+                            <li><a href="/category/{{ category[0] }}/1/new">{{ category[1] }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -75,7 +80,7 @@
                         </form>
                         <div class="container-fluid">
                             <br>
-                            <a class="small" href="#">Unohditko salasanan?</a>
+                            <a class="small" href="/lost_pwd">Unohditko salasanan?</a>
                         </div>
                     </div>
                 </li>

@@ -11,19 +11,17 @@ def login():
     result = db.session.execute(sql,{"username":username})
     user = result.fetchone()
     if not user:
-        # TODO invalid user
-        pass
+        success = "False"
     else:
         hash_value = user[0]
         if check_password_hash(hash_value,password):
             session["username"] = username
-            # TODO ilmoita käyttäjälle että kirjautunut
+            success = "True"
         else:
-            # TODO invalid pass
-            pass
+            success = "False"
+    return render_template("index.html", success=success)
 
     # TODO: use sessions to redirect back to the page they were on
-    return redirect("/")
 
 @app.route("/logout")
 def logout():
@@ -60,3 +58,7 @@ def register():
     session["username"] = username
     # TODO: use sessions to redirect back to the page they were on
     return redirect("/")
+
+@app.route("/lost_pwd")
+def lost_pwd():
+    return render_template("error.html", message="voivoi")

@@ -1,8 +1,36 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block content %}
-<div class="page-header">
-    <h1>Etusivu</h1>
+
+
+{% if success=="True" %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            toastr.options.timeOut = 2000;
+            toastr.success('Kirjauduttu sisään!');
+        });
+    </script>
+{% elif success=="False" %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            toastr.options.timeOut = 2000;
+            toastr.error('Väärä käyttäjätunnus tai salasana');
+        });
+    </script>
+{% endif %}
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Alposlist - osta ja myy mitä vain</h1>
+    </div>
 </div>
-Tervetuloa alposlistiin. Täällä voit ostaa ja myydä lähes mitä vain.
+<br><br>
+<form class="search" action="/search" method="POST">
+    <input type="text" placeholder="Etsi myynnissä olevia tuotteita..." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+Uusimmat myynti-ilmoitukset:
+renderöi niitä tähän
+
 {% endblock %}

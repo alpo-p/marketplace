@@ -1,11 +1,23 @@
 {% extends "layout.html" %}
 {% block title %}{{ category }}{% endblock %}
 {% block content %}
-<div class="page-header">
+<div class="page-header" style="margin-top: 0;">
     <div id="center">
         <h1>{{ category }}</h1>
     </div>
 </div>
+<div id="center">
+    {% if sort=='new' %}
+    <a href="/category/{{ id }}/1/old" class="btn btn-primary" id="sortbtn">
+        <span class="glyphicon glyphicon-sort" id="sortbtn"> Näytä vanhimmat ensin</span>
+    </a>
+    {% else %}
+    <a href="/category/{{ id }}/1/new" class="btn btn-primary" id="sortbtn">
+        <span class="glyphicon glyphicon-sort" id="sortbtn"> Näytä uusimmat ensin</span>
+    </a>
+    {% endif %}
+</div>
+<br>
 <div id="center">
     <div class="panel-group">
         {% for item in items %}
@@ -13,13 +25,28 @@
                 <div class="panel-heading">{{ item[2] }}</div>
                 <div class="panel-body">
                     <img class="thumb" src="https://alposlist-pictures.s3.eu-north-1.amazonaws.com/{{ item[8] }}"> <br>
-                    Hinta: {{ item[6] }} <br>
+                    <b>Lisätty:</b> {{ item[3].strftime('%d.%m.%Y') }} <br>
+                    <b>Hinta:</b> {{ item[6] }} € <br>
                     <b>Kuvaus:</b><br>
                     {{ item[7] }} <br>
-                    <a href="/item/{{ item[1] }}" class="btn btn-primary">Katso tuote</a>
+                    <a href="/item/{{ item[0] }}" class="btn btn-primary">Katso tuote</a>
                 </div>
             </div>
         {% endfor %}
     </div>
+</div>
+<div id="center">
+    <nav aria-label="...">
+        <ul class="pagination">
+            {% if page>1 %}
+            <li class="page-item">
+                <a class="page-link" href="/category/{{ id }}/{{ page - 1 }}/{{ sort }}">Edellinen sivu</a>
+            </li>
+            {% endif %}
+            <li class="page-item">
+                <a class="page-link" href="/category/{{ id }}/{{ page + 1 }}/{{ sort }}">Seuraava sivu</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 {% endblock %}

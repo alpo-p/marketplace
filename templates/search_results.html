@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+<div class="page-header" style="margin-top: 0;">
+    <div id="center">
+        <h1>Hakutulokset haulle: {{ search }}</h1>
+    </div>
+</div>
+<br>
+<form class="search" action="/search" method="POST">
+    <input type="text" placeholder="Etsi myynnissä olevia tuotteita..." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<br>
+<div id="center">
+    <div class="panel-group">
+        {% for item in items %}
+            <div class="panel panel-default" data-href=>
+                <div class="panel-heading">{{ item[2] }}</div>
+                <div class="panel-body">
+                    <img class="thumb" src="https://alposlist-pictures.s3.eu-north-1.amazonaws.com/{{ item[8] }}"> <br>
+                    <b>Lisätty:</b> {{ item[3].strftime('%d.%m.%Y') }} <br>
+                    <b>Hinta:</b> {{ item[6] }} € <br>
+                    <b>Kuvaus:</b><br>
+                    {{ item[7] }} <br>
+                    <a href="/item/{{ item[0] }}" class="btn btn-primary">Katso tuote</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

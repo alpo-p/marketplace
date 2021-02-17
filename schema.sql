@@ -4,7 +4,7 @@ CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     category_id INTEGER REFERENCES categories,
     name TEXT,
-    date_added TIMESTAMP,
+    date_added DATETIME,
     visible BOOLEAN,
     user_id INTEGER REFERENCES users,
     price INTEGER,
