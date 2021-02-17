@@ -1,13 +1,31 @@
 {% extends "layout.html" %}
 {% block title %}{{ item_name }}{% endblock %}
 {% block content %}
-<h2>{{ item_name }}</h2>
-<img class="small-pic" src="https://alposlist-pictures.s3.eu-north-1.amazonaws.com/{{ picture }}">
-<hr>
-Ilmoitus jätetty: {{ date_added }} <br>
-Hinta: {{ price }} €
-<hr>
-Lisätiedot:
-<br>
-{{ kuvaus }}
+<div class="container-fluid">
+    <div class="col-sm-8 text-left">
+        <div class="card">
+            <img class="card-img-top" src="https://alposlist-pictures.s3.eu-north-1.amazonaws.com/{{ picture }}">
+            <div class="card-body">
+                <h2 class="card-title">{{ item_name }}</h2>
+                <p class="card-text"><b>Ilmoitus jätetty:</b> {{ date_added }}</p>
+                <p class="card-text"><b>Hinta:</b> {{ price }} €</p>
+                <p class="card-text"><b>Lisätiedot:</b></p>
+                <p class="card-text">{{ kuvaus }}</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="col-sm-4 text-left">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title"><b>Myyjän nimi:</b> {{ seller_name }}</h2>
+                <p class="card-text"><b>Myyjän kuvaus:</b></p>
+                <p class="card-text">{{ seller_description }}</p>
+                <p class="card-text"><b>Paikkakunta:</b> {{ pkunta }}</p>
+                <p class="card-text"><b>Myyjän puhelinnumero:</b> {{ puhnro }}</p>
+                <a href="mailto:{{ seller_email }}?subject = Myynnissä oleva tuotteenne" class="btn btn-primary">Lähetä sähköpostia myyjälle</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

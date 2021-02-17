@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}Ilmoitusten lisäys tai muokkaus{% endblock %}
 {% block content %}
-<!--https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h kun lisätty onnistuneesti?:-->
 <h2>Lisää tai muokkaa ilmoituksia</h2>
 
 <div class="new_ad"">
@@ -16,12 +15,6 @@
             {% endfor %}
         </select> <br> <br>
 
-        <label>Ostetaan/myydään:</label>
-        <select name="ostetaan">
-            <option value="FALSE">Myydään</option>
-            <option value="TRUE">Ostetaan</option>
-        </select> <br>
-            
         <p>Kuvaus:<br>
             <textarea name="kuvaus" rows=15 cols=69></textarea>
         <p>Hinta:<br>

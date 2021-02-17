@@ -3,6 +3,7 @@ from db import db
 from app import app
 from file_management import upload_picture
 
+# User operations; mostly adding ads
 
 @app.route("/profile")
 def profile():
@@ -17,26 +18,20 @@ def edit_ads():
 def make_ad():
     name = request.form["name"]
     category = request.form["category"]
-    ostetaan = request.form["ostetaan"]
     kuvaus = request.form["kuvaus"]
     hinta = int(request.form["hinta"].replace(" ",""))
 
     picture = request.files['picture']
     pic_name = upload_picture(picture)
 
-    sql_a = "INSERT INTO items (category_id, name, date_added, visible)" \
-            "VALUES (:category, :name, NOW(), TRUE) RETURNING id"
-    result_a = db.session.execute(sql_a, {"category":category,"name":name})
+    sql_c = "SELECT id FROM users WHERE username=:name"
+    user_id = db.session.execute(sql_c, {"name":session["username"]}).fetchone()[0]
+
+    sql_a = "INSERT INTO items (category_id, name, date_added, visible, user_id, price, kuvaus, picture)" \
+            "VALUES (:category, :name, NOW(), TRUE, :user_id, :price, :kuvaus, :picture) RETURNING id"
+    result_a = db.session.execute(sql_a, {"category":category,"name":name, "user_id":user_id, "price":hinta, "kuvaus":kuvaus,
+                                          "picture":pic_name})
     db.session.commit()
     item_id = result_a.fetchone()[0]
 
-    sql_b = "INSERT INTO iteminfo (item_id, user_id, price, kuvaus, ostetaan, picture)" \
-            "VALUES (:item_id, :user_id, :price, :kuvaus, :ostetaan, :picture)"
-    sql_c = "SELECT id FROM users WHERE username=:name"
-    user_id = db.session.execute(sql_c, {"name":session["username"]}).fetchone()[0]
-    db.session.execute(sql_b, 
-        {"item_id":item_id, "user_id":user_id, "price":hinta, "kuvaus":kuvaus,
-        "ostetaan":ostetaan, "picture":pic_name})
-    db.session.commit()
-
-    return redirect("/add_ad")
+    return redirect("/item/"+str(item_id))

@@ -5,7 +5,11 @@ CREATE TABLE items (
     category_id INTEGER REFERENCES categories,
     name TEXT,
     date_added TIMESTAMP,
-    visible BOOLEAN
+    visible BOOLEAN,
+    user_id INTEGER REFERENCES users,
+    price INTEGER,
+    kuvaus TEXT,
+    picture TEXT
 );
 
 CREATE TABLE users (
@@ -14,26 +18,13 @@ CREATE TABLE users (
     password TEXT
 );
 
-CREATE TABLE iteminfo (
-    id SERIAL PRIMARY KEY,
-    item_id INTEGER REFERENCES items,
-    user_id INTEGER REFERENCES users,
-    price INTEGER,
-    kuvaus TEXT,
-    ostetaan BOOLEAN,
-    picture TEXT
-);
-
 CREATE TABLE userinfo (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
     puhelinnumero TEXT,
     paikkakunta TEXT,
-    ptoimipaikka TEXT,
     sposti TEXT,
-    osoite TEXT,
     kuvaus TEXT,
-    nettisivu TEXT
 );
 
 CREATE TABLE admin(

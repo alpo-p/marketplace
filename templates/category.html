@@ -1,11 +1,25 @@
 {% extends "layout.html" %}
 {% block title %}{{ category }}{% endblock %}
 {% block content %}
-<!--https://www.w3schools.com/bootstrap/bootstrap_panels.asp renderöi näiden kautta tau https://www.w3schools.com/bootstrap/bootstrap_list_groups.asp-->
-<h2>{{ category }}</h2>
-<ul>
-    {% for item in items %}
-    <li><a href="/item/{{ item[1] }}">{{ item[0] }}</a></li>
-    {% endfor %}
-</ul>
+<div class="page-header">
+    <div id="center">
+        <h1>{{ category }}</h1>
+    </div>
+</div>
+<div id="center">
+    <div class="panel-group">
+        {% for item in items %}
+            <div class="panel panel-default" data-href=>
+                <div class="panel-heading">{{ item[2] }}</div>
+                <div class="panel-body">
+                    <img class="thumb" src="https://alposlist-pictures.s3.eu-north-1.amazonaws.com/{{ item[8] }}"> <br>
+                    Hinta: {{ item[6] }} <br>
+                    <b>Kuvaus:</b><br>
+                    {{ item[7] }} <br>
+                    <a href="/item/{{ item[1] }}" class="btn btn-primary">Katso tuote</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
