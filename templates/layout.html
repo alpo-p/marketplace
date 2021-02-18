@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>alposlist - {% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles.css">
@@ -50,8 +51,8 @@
                     </ul>
                 </li>
                 {% if session.username %}
-                <li><a href="/profile">
-                    <span class="glyphicon glyphicon-user"></span> Muuta tietojasi
+                <li><a href="/edit_ads">
+                    <span class="glyphicon glyphicon-pencil"></span> Muuta ilmoituksiasi
                 </a></li>
                 <li><a href="/add_ad">
                     <span class="glyphicon glyphicon-plus"></span> Lisää ilmoitus  

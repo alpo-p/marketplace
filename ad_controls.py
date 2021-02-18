@@ -3,13 +3,6 @@ from db import db
 from app import app
 from file_management import upload_picture
 
-# User operations; mostly adding ads
-
-@app.route("/profile")
-def profile():
-    # TODO!!
-    return render_template("profile.html")
-
 @app.route("/add_ad")
 def edit_ads():
     return render_template("add_ad.html")
@@ -19,7 +12,7 @@ def make_ad():
     name = request.form["name"]
     category = request.form["category"]
     kuvaus = request.form["kuvaus"]
-    hinta = int(request.form["hinta"].replace(" ",""))
+    hinta = int(request.form["hinta"].replace(" ","").replace("e","").replace("€","").replace("E",""))
 
     picture = request.files['picture']
     pic_name = upload_picture(picture)

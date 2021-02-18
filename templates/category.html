@@ -40,11 +40,11 @@
         <ul class="pagination">
             {% if page>1 %}
             <li class="page-item">
-                <a class="page-link" href="/category/{{ id }}/{{ page - 1 }}/{{ sort }}">Edellinen sivu</a>
+                <a id="plink" class="page-link" href="/category/{{ id }}/{{ page - 1 }}/{{ sort }}">Edellinen sivu</a>
             </li>
             {% endif %}
             <li class="page-item">
-                <a class="page-link" href="/category/{{ id }}/{{ page + 1 }}/{{ sort }}">Seuraava sivu</a>
+                <a id="plink" class="page-link" href="/category/{{ id }}/{{ page + 1 }}/{{ sort }}">Seuraava sivu</a>
             </li>
         </ul>
     </nav>

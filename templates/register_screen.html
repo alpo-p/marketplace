@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}Luo uusi tunnus{% endblock %}
 {% block content %}
-<div class="signup-form">
+<div class="a-form">
     <form action="/register" method="POST"
     oninput='conf.setCustomValidity(password.value!=conf.value ? "Salasanat eivät täsmää" : "")'>
         <h2>Luo uusi tunnus</h2>
@@ -33,6 +33,13 @@
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                 <input type="text" class="form-control" name="puhelinnumero"
                 placeholder="Puhelinnumero" required="required"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
+                <input type="text" class="form-control" name="kuvaus"
+                placeholder="Kuvaile itseäsi muutamalla sanalla" required="required"></p>
             </div>
         </div>
         <div class="form-group">

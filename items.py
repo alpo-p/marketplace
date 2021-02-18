@@ -2,6 +2,12 @@ from flask import render_template, request, redirect
 from db import db
 from app import app
 
+def get_newest():
+    sql = "SELECT * FROM items ORDER BY date_added DESC LIMIT 3"
+    result = db.session.execute(sql)
+    items = result.fetchall()
+    return items
+
 # Individual category page
 @app.route("/category/<int:id>/<int:page>/<sort>")
 def category(id,page,sort):

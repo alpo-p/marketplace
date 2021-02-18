@@ -1,26 +1,55 @@
 {% extends "layout.html" %}
 {% block title %}Ilmoitusten lisäys tai muokkaus{% endblock %}
 {% block content %}
-<h2>Lisää tai muokkaa ilmoituksia</h2>
 
-<div class="new_ad"">
+<div class="a-form">
     <form action="/upload_ad" method="POST" enctype="multipart/form-data">
-        <p>Tuotteen nimi:<br>
-            <input type="text" name="name"></p> 
+        <h2>Lisää  uusi ilmoitus</h2>
+        <p>Täytä kaikki kentät lisätäksesi uuden ilmoituksen</p>
+        <hr>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-adn"></i></span>
+                <input type="text" class="form-control" name="name"
+                placeholder="Myytävän tuotteen nimi" required="required">
+            </div>
+        </div>
 
-        <label>Valitse kategoria:</label>
-        <select name="category">
-            {% for category in get_categories() %}
-                <option value="{{ category[0] }}">{{ category[1] }}</option>
-            {% endfor %}
-        </select> <br> <br>
+        <div class="form-group">
+            <select class="form-control" name="category">
+                <option selected>Valitse kategoria</option>
+                {% for category in get_categories() %}
+                    <option value="{{ category[0] }}">{{ category[1] }}</option>
+                {% endfor %}
+            </select> 
+        </div>
 
-        <p>Kuvaus:<br>
-            <textarea name="kuvaus" rows=15 cols=69></textarea>
-        <p>Hinta:<br>
-            <input type="text" name="hinta"></p> 
-        <p>Lisää kuva (.jpg, .jpeg, .png): <input type="file" name="picture" accept=".jpg, .jpeg, .png"></p>
-        <input type="submit" value="Luo ilmoitus">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span>
+                <input type="text" class="form-control" name="kuvaus"
+                placeholder="Myytävän tuotteen kuvaus" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+                <input type="text" class="form-control" name="hinta"
+                placeholder="Hinta" required="required">
+            </div>
+        </div>
+
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="cfile" name="picture" required accept=".jpg, .jpeg, .png">
+            <label class="custom-file-label" for="cfile">Lisää kuva (.jpg, .jpeg, .png)</label>
+        </div>
+        <br>
+        <div id="center">
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Luo ilmoitus</button>
+            </div>
+        </div>
     </form>
 </div>
 {% endblock %}
