@@ -2,6 +2,7 @@ from app import app
 from flask import request, render_template, redirect, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from db import db
+from items import get_newest
 
 @app.route("/login_screen")
 def login_screen():
@@ -14,6 +15,7 @@ def login():
     sql = "SELECT password FROM users WHERE username=:username"
     result = db.session.execute(sql,{"username":username})
     user = result.fetchone()
+    items = get_newest() 
     if not user:
         success = "False"
     else:
@@ -23,7 +25,7 @@ def login():
             success = "True"
         else:
             success = "False"
-    return render_template("index.html", success=success)
+    return render_template("index.html", items=items, success=success)
 
 @app.route("/logout")
 def logout():
