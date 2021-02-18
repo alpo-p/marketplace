@@ -3,17 +3,11 @@
 {% block content %}
 <div class="page-header" style="margin-top: 0;">
     <div id="center">
-        <h1>Hakutulokset haulle: {{ search }}</h1>
+        <h1>Muokkaa ilmoituksiasi</h1>
     </div>
 </div>
-<br>
-<form class="search" action="/search" method="POST">
-    <input type="text" placeholder="Etsi myynnissä olevia tuotteita..." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-</form>
-<br>
 <div id="center">
-    <div class="panel-group" style="width: 50%;">
+    <div class="panel-group">
         {% for item in items %}
             <div class="panel panel-default">
                 <div class="panel-heading">{{ item[2] }}</div>
@@ -26,7 +20,7 @@
                     <b>Kuvaus:</b><br>
                     {{ item[7] }} <br>
                     <div id="center">
-                        <a href="/item/{{ item[0] }}" class="btn btn-primary">Katso tuote</a>
+                        <a href="/edit_ads/{{ item[0] }}" class="btn btn-primary">Muokkaa</a>
                     </div>
                 </div>
             </div>

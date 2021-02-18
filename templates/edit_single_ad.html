@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}Ilmoitusten lisäys tai muokkaus{% endblock %}
+{% block content %}
+
+<div class="a-form">
+    <form action="/update_ad" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ item[0] }}">
+        <h2>Muokkaa tuotetta {{ item[2] }}</h2>
+        <p>Muokkaa kenttiä alla ja paina tallenna tai poista</p>
+        <hr>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-adn"></i></span>
+                <input type="text" class="form-control" name="name"
+                value="{{ item[2] }}" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span>
+                <input type="text" class="form-control" name="kuvaus"
+                value="{{ item[7] }}" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+                <input type="text" class="form-control" name="hinta"
+                value="{{ item[6] }}" required="required">
+            </div>
+        </div>
+
+        <div class="custom-file">
+            <input value="None" type="file" class="custom-file-input" id="cfile" name="picture" accept=".jpg, .jpeg, .png">
+            <label class="custom-file-label" for="cfile">Vaihda kuva (.jpg, .jpeg, .png)</label>
+        </div>
+        <br>
+        <div id="center">
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Tallenna</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="center" style="margin-top: -30px;">
+    <a href="/delete_ad/{{ item[0] }}" class="btn btn-danger">Poista ilmoitus</a>
+</div>
+{% endblock %}

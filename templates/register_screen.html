@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}Luo uusi tunnus{% endblock %}
 {% block content %}
+
 <div class="a-form">
     <form action="/register" method="POST"
     oninput='conf.setCustomValidity(password.value!=conf.value ? "Salasanat eivät täsmää" : "")'>
@@ -73,4 +74,5 @@
         </div>
     </form>
 </div>
+
 {% endblock %}
