@@ -65,7 +65,7 @@
   
   .thumb {
     max-width: 150%;
-    max-height: 250px;
+    max-height: 200px;
     align-self: center;
     margin-bottom: 15px;
   }
@@ -76,7 +76,15 @@
     width: 80%;
     max-width: 500px;
   }
-  
+
+  @media (min-width: 800px) {
+    #front-page-btn {
+        position: absolute;
+        bottom: 5%;
+        margin-top: 50px;
+    } 
+  }
+
   #front-page-panel-group {
     display: flex;
     flex-direction: row;
@@ -87,6 +95,10 @@
       flex-direction: column;
     }
 
+  }
+
+  #front-page-panel {
+      height: 450px;
   }
 
   @media (min-width: 800px) {
