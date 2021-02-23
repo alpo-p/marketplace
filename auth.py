@@ -4,10 +4,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from db import db
 from items import get_newest
 
-@app.route("/login_screen")
-def login_screen():
-    return render_template("login_screen.html")
-
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
@@ -29,11 +25,15 @@ def login():
 
 @app.route("/logout")
 def logout():
+    if session["username"]:
+        return render_template("error.html", message="Et ole kirjautuneena sisään!")
     del session["username"]
     return redirect("/")
 
 @app.route("/register_screen")
 def register_screen():
+    if session["username"]:
+        return render_template("error.html", message="Olet jo kirjautuneena sisään!")
     return render_template("register_screen.html")
 
 @app.route("/register", methods=["POST"])
@@ -63,4 +63,4 @@ def register():
 
 @app.route("/lost_pwd")
 def lost_pwd():
-    return render_template("error.html", message="voivoi")
+    return render_template("error.html", message="Valitettavasti emme voi auttaa, luo uusi tunnus")
