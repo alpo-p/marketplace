@@ -63,7 +63,8 @@
         <div id="center">
             <div class="form-group">
                 <label class="checkbox-inline">
-                    <input type="checkbox" required="required">Hyväksyn <a href="#">käyttöehdot</a>
+                    <input type="checkbox" required="required">Hyväksyn 
+                    <a data-toggle="modal" href="#terms">käyttöehdot</a>
                 </label>
             </div>
         </div>
@@ -73,6 +74,28 @@
             </div>
         </div>
     </form>
+
+    <!-- Terms and conditions modal-->
+    <div class="modal fade" id="terms" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Käyttöehdot</h4>
+            </div>
+            <div class="modal-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Duis hendrerit metus nisi, a tincidunt massa interdum nec. 
+                  Sed a pharetra nibh. Pellentesque ut neque sed urna tincidunt varius id eget felis. 
+                  Quisque ac varius dui, a posuere urna. Curabitur id ultricies velit. 
+                  Curabitur sit amet varius justo. Vivamus id pretium.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
