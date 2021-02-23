@@ -37,9 +37,6 @@ def item(id):
         return render_template("error.html", message="Tuotetta ei löydy")
     item_name = item[2]
     date_added = item[3]
-    visible = item[4]
-    if not visible:
-        return render_template("error.html", message="Tuotetta ei enää löydy")
     user_id = item[5]
     price = item[6]
     kuvaus = item[7]
