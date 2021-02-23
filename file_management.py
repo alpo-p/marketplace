@@ -19,4 +19,5 @@ def upload_picture(picture):
     picture.save(pic_path)
     upload_file(UPLOAD_FOLDER, pic_name, bucket)
     remove(pic_path)
+
     return pic_name

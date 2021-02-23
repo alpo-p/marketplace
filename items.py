@@ -23,6 +23,7 @@ def category(id,page,sort):
           "LIMIT 5 OFFSET :offset"
     result = db.session.execute(sql, {"id":id, "offset":(page-1)*5})
     items = result.fetchall()
+    
     return render_template("category.html", category=category, items=items, id=id, page=page, sort=sort)
 
 # Individual items page
