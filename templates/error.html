@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}{{ category }}{% endblock %}
 {% block content %}
-<p>{{ message }}</p>
+<div id="center">
+    <h1>{{ message }}</h1>
+    <br>
+</div>
+<div id="center">
+    <a href="javascript:history.go(-1)">Palaa edelliselle sivulle</a>
+</div>
 {% endblock %}
