@@ -2,6 +2,8 @@
 {% block title %}Etusivu{% endblock %}
 {% block content %}
 
+<script src="{{  url_for('static', filename='checkLengthSearch.js')  }}"></script>
+
 
 {% if success=="True" %}
     <script type="text/javascript">
@@ -21,11 +23,12 @@
 
 <div class="hero-image">
     <div class="hero-text">
-        <h1>Alposlist - osta ja myy mitä vain</h1>
+        <h1>Alposlist - osta tai myy helposti ja ilmaiseksi!</h1>
     </div>
 </div>
 <br><br>
-<form class="search" action="/search" method="POST">
+
+<form class="search" action="/search" method="POST" onsubmit="return checkLengthSearch(this)">
     <input type="text" placeholder="Etsi myynnissä olevia tuotteita..." name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
