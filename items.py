@@ -60,7 +60,11 @@ def item(id):
 @app.route("/search", methods=["POST"])
 def search():
     search = "%"+request.form["search"]+"%"
+    if len(search) > 50: 
+        return render_template("error.html", message="Liian pitkä hakusana")
+
     sql = "SELECT * FROM items WHERE name ILIKE :search LIMIT 15"
     result = db.session.execute(sql, {"search":search})
     items = result.fetchall()
+
     return render_template("search_results.html", search=search[1:-1], items=items)

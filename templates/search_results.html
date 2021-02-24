@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}{{ category }}{% endblock %}
 {% block content %}
+<script src="{{  url_for('static', filename='checkLengthSearch.js')  }}"></script>
+
 <div class="page-header" style="margin-top: 0;">
     <div id="center">
         <h1>Hakutulokset haulle: {{ search }}</h1>
     </div>
 </div>
 <br>
-<form class="search" action="/search" method="POST">
+<form class="search" action="/search" method="POST" onsubmit="return checkLengthSearch(this)">
     <input type="text" placeholder="Etsi myynnissä olevia tuotteita..." name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
