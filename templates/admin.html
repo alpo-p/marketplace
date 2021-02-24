@@ -1,9 +1,10 @@
 {% if session.admin %}
 ADMIN-paneeli
 <form action="/admin/new_category" method="POST">
-<p>Lisää kategoria:</p>
-<input type="text" name="name_of_category">
-<input type="submit" value="Lisää kategoria">
+    <p>Lisää kategoria:</p>
+    <input type="text" name="name_of_category">
+    <input type="hidden" name="admin_token" value="{{ session.admin_token }}">
+    <input type="submit" value="Lisää kategoria">
 </form>
 <hr>
 
