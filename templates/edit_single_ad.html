@@ -3,8 +3,11 @@
 {% block content %}
 
 <div class="a-form">
-    <form action="/update_ad" method="POST" enctype="multipart/form-data">
+    <form action="/update_ad" method="POST" enctype="multipart/form-data"
+    oninput="validate(this)">
         <input type="hidden" name="id" value="{{ item[0] }}">
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
         <h2>Muokkaa tuotetta {{ item[2] }}</h2>
         <p>Muokkaa kenttiä alla ja paina tallenna tai poista</p>
         <hr>
@@ -47,4 +50,17 @@
 <div id="center" style="margin-top: -30px;">
     <a href="/delete_ad/{{ item[0] }}" class="btn btn-danger">Poista ilmoitus</a>
 </div>
+
+<script>
+function validate(form) {
+    itemsToCheck = [form.name,form.hinta]
+
+    form.kuvaus.value.length > 150 ? element.setCustomValidity("Kentän tieto yli 150 merkkiä!") : element.setCustomValidity('');
+
+    itemsToCheck.forEach(element => {
+       element.value.length > 50 ? element.setCustomValidity("Kentän tieto yli 50 merkkiä!") : element.setCustomValidity('');
+    });
+}
+    
+</script>
 {% endblock %}
