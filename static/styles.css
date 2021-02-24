@@ -45,9 +45,10 @@
   }
   
   .logo { 
-    color: #303030;
-    border: 2px solid #010e04;
+    color: #19aa8d;
+    border: 2px solid #19aa8d;
     border-radius: 5px;
+    font-size: larger;
     font-family: fantasy;
     border-inline: 12px;
   }
