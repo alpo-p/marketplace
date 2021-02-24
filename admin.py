@@ -15,7 +15,6 @@ def admin_login():
     result = db.session.execute(sql, {"username":username})
     admin = result.fetchone()
     if admin and check_password_hash(admin[0],password):
-        print("SUCCESS")
         session["admin"] = username
     else:
         print("ERROR")
@@ -28,6 +27,10 @@ def admin_logout():
 
 @app.route("/admin/new_category", methods=["POST"])
 def new_category():
+    try:
+        session["admin"]
+    except:
+        return redirect("/")
     new = request.form["name_of_category"]
     sql = "INSERT INTO categories (name) VALUES (:new)"
     db.session.execute(sql, {"new":new})
