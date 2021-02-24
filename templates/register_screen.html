@@ -2,9 +2,10 @@
 {% block title %}Luo uusi tunnus{% endblock %}
 {% block content %}
 
+
 <div class="a-form">
     <form action="/register" method="POST"
-    oninput='conf.setCustomValidity(password.value!=conf.value ? "Salasanat eivät täsmää" : "")'>
+    oninput="validate(this)">
         <h2>Luo uusi tunnus</h2>
         <p>Luo tunnus ja pääset lisäämään omia ilmoituksiasi!</p>
         <hr>
@@ -98,4 +99,18 @@
     </div>
 </div>
 
+<script>
+function validate(form) {
+    var pass1 = form.password.value;
+    var pass2 = form.conf.value;
+    pass1 != pass2 ? form.conf.setCustomValidity("Salasanat eivät täsmää") : form.conf.setCustomValidity('');
+
+    itemsToCheck = [form.username,form.sposti,form.paikkakunta,form.puhelinnumero, form.kuvaus,form.password]
+
+    itemsToCheck.forEach(element => {
+       element.value.length > 50 ? element.setCustomValidity("Kentän tieto yli 50 merkkiä!") : element.setCustomValidity('');
+    });
+}
+    
+</script>
 {% endblock %}

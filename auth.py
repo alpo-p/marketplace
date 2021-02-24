@@ -4,6 +4,14 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from db import db
 from items import get_newest
 
+def get_user_id():
+    try:
+        username = session["username"]
+    except:
+        return False
+
+    return username
+
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
@@ -25,24 +33,36 @@ def login():
 
 @app.route("/logout")
 def logout():
-    if session["username"]:
+    if not get_user_id():
         return render_template("error.html", message="Et ole kirjautuneena sisään!")
-    del session["username"]
-    return redirect("/")
+    else:
+        del session["username"]
+        return redirect("/")
 
 @app.route("/register_screen")
 def register_screen():
-    if session["username"]:
+    if not get_user_id():
+        return render_template("register_screen.html")
+    else:
         return render_template("error.html", message="Olet jo kirjautuneena sisään!")
-    return render_template("register_screen.html")
 
 @app.route("/register", methods=["POST"])
 def register():
     username = request.form["username"]
+    all_usernames = db.session.execute("SELECT username FROM users").fetchall()
+    for name in all_usernames:
+        if username == name[0]:
+            return render_template("error.html", message="Tämä käyttäjätunnus on jo käytössä!")
+
+    sposti = request.form["sposti"]
+    all_emails = db.session.execute("SELECT sposti FROM userinfo").fetchall()
+    for mail in all_emails:
+        if sposti == mail[0]:
+            return render_template("error.html", message="Tämä sähköposti on jo käytössä!")
+        
     password = request.form["password"]
     puhelinnumero = request.form["puhelinnumero"]
     paikkakunta = request.form["paikkakunta"]
-    sposti = request.form["sposti"]
     kuvaus = request.form["kuvaus"]
     hashed_pwd = generate_password_hash(password)
     sql_a = "INSERT INTO users (username,password)" \
@@ -58,7 +78,7 @@ def register():
     db.session.commit()
 
     session["username"] = username
-    # TODO: use sessions to redirect back to the page they were on
+    
     return redirect("/")
 
 @app.route("/lost_pwd")
