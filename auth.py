@@ -3,14 +3,16 @@ from flask import request, render_template, redirect, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from db import db
 from items import get_newest
+from os import urandom
 
 def get_user_id():
+    sql = "SELECT id FROM users WHERE username=:name"
     try:
-        username = session["username"]
+        name = session["username"]
     except:
         return False
-
-    return username
+    user_id = db.session.execute(sql, {"name":name}).fetchone()[0]
+    return user_id
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -27,6 +29,7 @@ def login():
         if check_password_hash(hash_value,password):
             session["username"] = username
             success = "True"
+            session["csrf_token"] = urandom(16).hex()
         else:
             success = "False"
     return render_template("index.html", items=items, success=success)
