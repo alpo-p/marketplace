@@ -14,7 +14,11 @@
     <a href="https://github.com/alpo-p/marketplace"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://alposlist.herokuapp.com/">View Demo. Demo-account: "demo". Demo-password: "password"</a>
+    <a href="https://alposlist.herokuapp.com/">View Demo</a>
+    <br />
+    <b>Demo-account:</b> demo
+    <br />
+    <b>Demo-password:</b> password
   </p>
 </p>
 
