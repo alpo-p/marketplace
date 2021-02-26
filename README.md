@@ -128,5 +128,5 @@ Project Link: [https://github.com/alpo-p/marketplace](https://github.com/alpo-p/
 [license-url]: https://github.com/alpo-p/marketplace/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alpopanula
-[product-screenshot]: screenshot.jpg
+[product-screenshot]: screenshot-mobile.jpg
 
