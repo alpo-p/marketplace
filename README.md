@@ -15,6 +15,10 @@
     <br />
     <br />
     <a href="https://alposlist.herokuapp.com/">View Demo</a>
+    <br />
+    <b>Demo-account:</b> demo
+    <br />
+    <b>Demo-password:</b> password
   </p>
 </p>
 
@@ -43,7 +47,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This is a web application intended to mimic craigslist or other similar online marketplaces.
+This is a web application intended to mimic craigslist or other similar online marketplaces. Note: the page is completely in Finnish!
 <br /><br />
 <strong>Features</strong>
 * Secure logging-in/out and registering a new user
@@ -55,6 +59,7 @@ This is a web application intended to mimic craigslist or other similar online m
 * Searching the titles of sales ads and showing a search results page
 * A very light admin-panel
 
+<a href="alposlist.herokuapp.com">SEE THE SITE HERE</a>
 
 [![Marketplace Screen Shot][product-screenshot]]
 
@@ -124,5 +129,5 @@ Project Link: [https://github.com/alpo-p/marketplace](https://github.com/alpo-p/
 [license-url]: https://github.com/alpo-p/marketplace/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alpopanula
-[product-screenshot]: screenshot.jpg
+[product-screenshot]: screenshot-mobile.jpg
 
