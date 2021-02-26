@@ -6,13 +6,6 @@
   </a>
  </p>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
   <h3 align="center">Online marketplace - aka alposlist</h3>
 
   <p align="center">
