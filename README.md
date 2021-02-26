@@ -54,7 +54,7 @@ This is a web application intended to mimic craigslist or other similar online m
 * Mobile responsive with fast loadtimes
 * Front-page with search-bar and 3 newest sales ads
 * Ability to add new sales ads
-* Viewing sales ads by categories (limited to 10 per page)
+* Viewing sales ads by categories (limited to 5 per page)
 * Viewing a single sales ad
 * Searching the titles of sales ads and showing a search results page
 * A very light admin-panel
