@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is a web application intended to mimic craigslist or other similar online marketplaces.
-<br />
+<br /><br />
 <strong>Features</strong>
 * Secure logging-in/out and registering a new user
 * Mobile responsive with fast loadtimes
