@@ -89,6 +89,7 @@
   #front-page-panel-group {
     display: flex;
     flex-direction: row;
+    margin-left: 5%;
   }
 
   @media (max-width: 800px) {
