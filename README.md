@@ -43,7 +43,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This is a web application intended to mimic craigslist or other similar online marketplaces.
+This is a web application intended to mimic craigslist or other similar online marketplaces. Note: the page is completely in Finnish!
 <br /><br />
 <strong>Features</strong>
 * Secure logging-in/out and registering a new user
