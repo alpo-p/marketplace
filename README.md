@@ -53,6 +53,7 @@ This is a web application intended to mimic craigslist or other similar online m
 * Viewing sales ads by categories (limited to 10 per page)
 * Viewing a single sales ad
 * Searching the titles of sales ads and showing a search results page
+* A very light admin-panel
 
 
 [![Marketplace Screen Shot][product-screenshot]]
