@@ -2,17 +2,11 @@
 <br />
 <p align="center">
   <a href="https://github.com/alpo-p/marketplace">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.jpg" width="340" height="123">
   </a>
+ </p>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-  <h3 align="center">Alpo's list</h3>
+  <h3 align="center">Online marketplace - aka alposlist</h3>
 
   <p align="center">
     A web application built with Flask, HTML and PostgreSQL. It takes inspiration from online marketplaces such as tori.fi and Craig's list
@@ -20,11 +14,7 @@
     <a href="https://github.com/alpo-p/marketplace"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/alpo-p/marketplace">View Demo</a>
-    ·
-    <a href="https://github.com/alpo-p/marketplace/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/alpo-p/marketplace/issues">Request Feature</a>
+    <a href="https://alposlist.herokuapp.com/">View Demo</a>
   </p>
 </p>
 
@@ -42,14 +32,7 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -60,48 +43,48 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+This is a web application intended to mimic craigslist or other similar online marketplaces.
+<br /><br />
+<strong>Features</strong>
+* Secure logging-in/out and registering a new user
+* Mobile responsive with fast loadtimes
+* Front-page with search-bar and 3 newest sales ads
+* Ability to add new sales ads
+* Viewing sales ads by categories (limited to 10 per page)
+* Viewing a single sales ad
+* Searching the titles of sales ads and showing a search results page
 
-TODO
 
-[![Marketplace Screen Shot][product-screenshot]](TODO)
-
-
+[![Marketplace Screen Shot][product-screenshot]]
 
 ### Built With
 
-* [Flask (Python)]()
-* [PostgreSQL]()
-* [HTML5]()
+<strong>Front-end:</strong>
+* HTML5
+* Jinja2
+* Javascript
+* CSS
+* Bootstrap3
+* jQuery
+* FontAwesome (icons)
+
+<strong>Back-end:</strong>
+* Flask
+* Python
+* SQLAlchemy
+* Werkzeug Security
+
+<strong>Data:</strong>
+* PostgreSQL
+* AWS S3 Buckets  
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-TODO
-
-### Prerequisites
-
-TODO
-
-### Installation
-
-TODO
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-TODO
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/alpo-p/marketplace/issues) for a list of proposed features (and known issues).
-
-
+Clone this repository and install the dependencies in requirements.txt. 
+Start the web application by running flask with command <code>flask run</code>.
 
 <!-- LICENSE -->
 ## License
@@ -120,7 +103,8 @@ Project Link: [https://github.com/alpo-p/marketplace](https://github.com/alpo-p/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* Made as a part of the studies in the University of Helsinki. Big thanks to the exceptionally good materials provided by A. Laaksonen et al
+* Made as a part of the studies in the University of Helsinki. Big thanks to the good materials provided by A. Laaksonen et al.
+* Also thanks to all open source tech used in the project 
 
 
 
@@ -139,4 +123,5 @@ Project Link: [https://github.com/alpo-p/marketplace](https://github.com/alpo-p/
 [license-url]: https://github.com/alpo-p/marketplace/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alpopanula
+[product-screenshot]: screenshot.jpg
 
