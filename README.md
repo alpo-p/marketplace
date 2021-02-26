@@ -58,6 +58,7 @@ This is a web application intended to mimic craigslist or other similar online m
 * Viewing a single sales ad
 * Searching the titles of sales ads and showing a search results page
 * A very light admin-panel
+* Security: shielded against CSRF attacks and SQL-injections
 
 <a href="alposlist.herokuapp.com">SEE THE SITE HERE</a>
 
