@@ -83,7 +83,8 @@ This is a web application intended to mimic craigslist or other similar online m
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Install the dependencies in requirements.txt. Start the web application by running flask with command <code>flask run</code>.
+Clone this repository and install the dependencies in requirements.txt. 
+Start the web application by running flask with command <code>flask run</code>.
 
 <!-- LICENSE -->
 ## License
