@@ -94,7 +94,7 @@ This is a web application intended to mimic craigslist or other similar online m
 1. Clone this repository 
 2. Install the dependencies in requirements.txt
 3. Run PostgreSQL (install instructions <a href="https://github.com/hy-tsoha/local-pg">here</a>)
-4. Make .env file consisting of (1) "SECRET_KEY" (neded for sessions to work, e.g. 95d3763bb55e744e77dd181a47b4e1c6), (2) "DATABASE_URI" (postgresql:/// should work) and (3) S3_BUCKET for storing pictures
+4. Make .env file consisting of (1) "SECRET_KEY" (needed for sessions to work, e.g. 95d3763bb55e744e77dd181a47b4e1c6), (2) "DATABASE_URI" (postgresql:/// should work) and (3) S3_BUCKET for storing pictures
 5. Start the web application by running flask with command <code>flask run</code> in the directory.
 
 <!-- LICENSE -->
