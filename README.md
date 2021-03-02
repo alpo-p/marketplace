@@ -57,7 +57,7 @@ This is a web application intended to mimic craigslist or other similar online m
 * Ability to add new sales ads
 * Viewing sales ads by categories (limited to 5 per page)
 * Viewing a single sales ad
-* A very light admin-panel
+* A very light admin-panel (access with <url>/admin)
 
 * Security: protection against (1) CSRF attacks (2) SQL-injections (3) XSS attacks (4) wrong/too long input (5) checking the user is correct
 
