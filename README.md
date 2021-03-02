@@ -30,9 +30,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -50,18 +47,20 @@
 This is a web application intended to mimic craigslist or other similar online marketplaces. Note: the page is completely in Finnish!
 <br /><br />
 <strong>Features</strong>
-* Secure logging-in/out and registering a new user
-* Mobile responsive with fast loadtimes
+* Secure logging-in/out and registering a new user (hashing of passwords)
+* Mobile responsive with fast load-time
 * Front-page with search-bar and 3 newest sales ads
+* Searching the titles of sales ads and showing a search results page
 * Ability to add new sales ads
 * Viewing sales ads by categories (limited to 5 per page)
 * Viewing a single sales ad
-* Searching the titles of sales ads and showing a search results page
-* A very light admin-panel
+* A very light admin-panel (access with <url>/admin)
+
+* Security: protection against (1) CSRF attacks (2) SQL-injections (3) XSS attacks (4) wrong/too long input (5) checking the user has right privileges
 
 <a href="alposlist.herokuapp.com">SEE THE SITE HERE</a>
 
-[![Marketplace Screen Shot][product-screenshot]]
+![Marketplace Screen Shot][product-screenshot]
 
 ### Built With
 
@@ -89,8 +88,11 @@ This is a web application intended to mimic craigslist or other similar online m
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Clone this repository and install the dependencies in requirements.txt. 
-Start the web application by running flask with command <code>flask run</code>.
+1. Clone this repository 
+2. Install the dependencies in requirements.txt
+3. Run PostgreSQL (install instructions <a href="https://github.com/hy-tsoha/local-pg">here</a>)
+4. Make .env file consisting of (1) "SECRET_KEY" (needed for sessions to work, e.g. 95d3763bb55e744e77dd181a47b4e1c6), (2) "DATABASE_URI" (postgresql:/// should work) and (3) S3_BUCKET for storing pictures
+5. Start the web application by running flask with command <code>flask run</code> in the directory.
 
 <!-- LICENSE -->
 ## License
