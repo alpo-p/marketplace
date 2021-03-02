@@ -50,15 +50,16 @@
 This is a web application intended to mimic craigslist or other similar online marketplaces. Note: the page is completely in Finnish!
 <br /><br />
 <strong>Features</strong>
-* Secure logging-in/out and registering a new user
-* Mobile responsive with fast loadtimes
+* Secure logging-in/out and registering a new user (hashing of passwords)
+* Mobile responsive with fast load-time
 * Front-page with search-bar and 3 newest sales ads
+* Searching the titles of sales ads and showing a search results page
 * Ability to add new sales ads
 * Viewing sales ads by categories (limited to 5 per page)
 * Viewing a single sales ad
-* Searching the titles of sales ads and showing a search results page
 * A very light admin-panel
-* Security: shielded against CSRF attacks and SQL-injections
+
+* Security: protection against (1) CSRF attacks (2) SQL-injections (3) XSS attacks (4) wrong/too long input (5) checking the user is correct
 
 <a href="alposlist.herokuapp.com">SEE THE SITE HERE</a>
 
@@ -90,8 +91,10 @@ This is a web application intended to mimic craigslist or other similar online m
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Clone this repository and install the dependencies in requirements.txt. 
-Start the web application by running flask with command <code>flask run</code>.
+1. Clone this repository 
+2. Install the dependencies in requirements.txt
+3. Run PostgreSQL (install instructions <a href="https://github.com/hy-tsoha/local-pg">here</a>)
+4. Start the web application by running flask with command <code>flask run</code> in the directory.
 
 <!-- LICENSE -->
 ## License
