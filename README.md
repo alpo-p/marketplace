@@ -63,7 +63,7 @@ This is a web application intended to mimic craigslist or other similar online m
 
 <a href="alposlist.herokuapp.com">SEE THE SITE HERE</a>
 
-[![Marketplace Screen Shot][product-screenshot]]
+![Marketplace Screen Shot][product-screenshot]
 
 ### Built With
 
