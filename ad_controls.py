@@ -103,11 +103,7 @@ def update_ad():
 
 @app.route("/delete_ad/<int:id>")
 def delete_ad(id):
-    if session["csrf_token"] != request.form["csrf_token"]: 
-        return False
-
     item_owner = db.session.execute("SELECT user_id from items WHERE id=:id", {"id":id}).fetchone()[0]
-    print(item_owner)
     if item_owner != get_user_id():
         return render_template("error.html", message="Et voi poistaa tätä tuotetta, sillä et omista sitä!")
     sql = "DELETE FROM items WHERE id=:id"
