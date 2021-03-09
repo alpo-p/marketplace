@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Ilmoitusten lisäys tai muokkaus{% endblock %}
+{% block title %}Ilmoitusten lisäys{% endblock %}
 {% block content %}
 
 <div class="a-form">
@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <select class="form-control" name="category">
-                <option value="" selected disabled hidden>Valitse kategoria</option>
+                <option value="empty" selected disabled hidden>Valitse kategoria</option>
                 {% for category in get_categories() %}
                     <option value="{{ category[0] }}">{{ category[1] }}</option>
                 {% endfor %}
@@ -61,8 +61,8 @@
 function validate(form) {
     itemsToCheck = [form.name,form.hinta]
 
-    form.category.value === '' ? element.setCustomValidity('Valitse kategoria!') : element.setCustomValidity('');
-    form.kuvaus.value.length > 150 ? element.setCustomValidity("Kentän tieto yli 150 merkkiä!") : element.setCustomValidity('');
+    form.category.value === 'empty' ? form.category.setCustomValidity('Valitse kategoria!') : form.category.setCustomValidity('');
+    form.kuvaus.value.length > 150 ? form.kuvaus.setCustomValidity("Kentän tieto yli 150 merkkiä!") : form.kuvaus.setCustomValidity('');
 
     itemsToCheck.forEach(element => {
        element.value.length > 50 ? element.setCustomValidity("Kentän tieto yli 50 merkkiä!") : element.setCustomValidity('');
