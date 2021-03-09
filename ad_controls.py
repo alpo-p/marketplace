@@ -44,7 +44,6 @@ def make_ad():
 
     return redirect("/item/"+str(item_id))
 
-
 @app.route("/edit_ads")
 def edit_ads():
     user_id = get_user_id()
@@ -64,7 +63,6 @@ def edit_single_ad(id):
     result = db.session.execute(sql, {"id":id})
     item = result.fetchone()
     return render_template("edit_single_ad.html", item=item)
-
 
 @app.route("/update_ad", methods=["POST"])
 def update_ad():

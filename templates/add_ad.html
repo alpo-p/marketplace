@@ -61,6 +61,7 @@
 function validate(form) {
     itemsToCheck = [form.name,form.hinta]
 
+    form.category.value === 'Valitse kategoria' ? element.setCustomValidity('Valitse kategoria!') : element.setCustomValidity('');
     form.kuvaus.value.length > 150 ? element.setCustomValidity("Kentän tieto yli 150 merkkiä!") : element.setCustomValidity('');
 
     itemsToCheck.forEach(element => {
