@@ -80,6 +80,7 @@ def register():
         {"user_id":user_id,"puhelinnumero":puhelinnumero,"paikkakunta":paikkakunta,"sposti":sposti,"kuvaus":kuvaus})
     db.session.commit()
 
+    session["csrf_token"] = urandom(16).hex()
     session["username"] = username
     
     return redirect("/")
