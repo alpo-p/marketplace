@@ -1,7 +1,7 @@
+from db_operations.admin_db import *
 from app import app
 from flask import render_template, redirect, request, session
 from werkzeug.security import check_password_hash
-from db import db
 from os import urandom
 
 @app.route("/admin")
@@ -12,9 +12,7 @@ def admin():
 def admin_login():
     username = request.form["username"]
     password = request.form["password"]
-    sql = "SELECT password FROM admin WHERE username=:username"
-    result = db.session.execute(sql, {"username":username})
-    admin = result.fetchone()
+    admin = get_admin_password(username)
     if admin and check_password_hash(admin[0],password):
         session["admin_token"] = urandom(16).hex()
         session["admin"] = username
@@ -36,7 +34,5 @@ def new_category():
     if session["admin_token"] != request.form["admin_token"]: 
         return False
     new = request.form["name_of_category"]
-    sql = "INSERT INTO categories (name) VALUES (:new)"
-    db.session.execute(sql, {"new":new})
-    db.session.commit()
+    insert_new_category(new)
     return redirect("/admin")
