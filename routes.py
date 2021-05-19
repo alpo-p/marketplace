@@ -5,10 +5,10 @@ from app import app
 from utils import utility_processor
 
 ## These are imported routes
-import auth
-import admin
-import ad_controls
-import items
+import controllers.auth
+import controllers.items
+import controllers.ad_controls
+import controllers.admin
 
 @app.route("/")
 def index():
