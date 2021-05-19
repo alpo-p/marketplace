@@ -11,10 +11,10 @@
   <p align="center">
     A web application built with Flask, HTML and PostgreSQL. It takes inspiration from online marketplaces such as tori.fi and Craig's list
     <br />
-    <a href="https://github.com/alpo-p/marketplace"><strong>Explore the docs »</strong></a>
+    
+  <p align="center">
     <br />
-    <br />
-    <a href="https://alposlist.herokuapp.com/">View Demo</a>
+    <a href="https://alposlist.herokuapp.com/">View Live Demo</a>
     <br />
     <b>Demo-account:</b> demo
     <br />
