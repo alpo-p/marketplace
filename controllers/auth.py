@@ -10,17 +10,14 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     user = get_user_password(username)
-    items = get_newest() 
-    if not user:
-        success = "False"
-    else:
+    items = get_newest()
+    success = "False"
+    if user:
         hash_value = user[0]
         if check_password_hash(hash_value,password):
             session["username"] = username
             success = "True"
             session["csrf_token"] = urandom(16).hex()
-        else:
-            success = "False"
     return render_template("index.html", items=items, success=success)
 
 @app.route("/logout")
@@ -61,7 +58,7 @@ def register():
 
     user_id = create_auth_user(username, hashed_pwd)
 
-    insert_user_info_to_db()(sposti, puhelinnumero, paikkakunta, kuvaus, user_id)
+    insert_user_info_to_db(sposti, puhelinnumero, paikkakunta, kuvaus, user_id)
 
     session["csrf_token"] = urandom(16).hex()
     session["username"] = username
